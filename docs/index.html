@@ -220,7 +220,54 @@
             margin-top: 10px;
         }
         
-        .waitlist {
+        .how-it-works {
+            padding: 80px 0;
+            background: rgba(0, 0, 0, 0.1);
+        }
+        
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .process-step {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+        }
+        
+        .process-step:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+        
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto 20px;
+            color: white;
+        }
+        
+        .process-step h3 {
+            font-size: 1.2rem;
+            color: white;
+            line-height: 1.4;
+        }
+        
             padding: 80px 0;
             background: rgba(0, 0, 0, 0.2);
             text-align: center;
@@ -380,57 +427,98 @@
         <div class="container">
             <div class="hero-content">
                 <h1>Meet Envoy</h1>
-                <p>The AI that doesn't just process—it understands. Experience the future of intelligent assistance with context-aware responses that adapt to your unique needs.</p>
+                <p>Your trusted AI assistant that not only understands your project goals, it champions them. Envoy listens to your needs, crafts a personalized project plan, lines up vendors, and communicates on your behalf to secure quotes, meetings, or proposals.</p>
                 <div class="cta-buttons">
                     <a href="#waitlist" class="btn btn-primary">Join the Waitlist</a>
                     <a href="#features" class="btn btn-secondary">Learn More</a>
                 </div>
             </div>
         </div>
+    <section class="how-it-works">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 60px;">
+                <h2 style="font-size: 2.5rem; margin-bottom: 20px;">How Envoy Works</h2>
+                <p style="font-size: 1.2rem; opacity: 0.9; max-width: 600px; margin: 0 auto;">For any project like planning an event, booking home improvement services, or coordinating logistics, Envoy:</p>
+            </div>
+            
+            <div class="process-grid">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3>Builds a detailed timeline and milestones</h3>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3>Compiles curated vendor lists based on your criteria</h3>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3>Drafts and sends tailored outreach emails to vendors</h3>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3>Engages in follow up conversations to gather quotes or schedule meetings</h3>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">5</div>
+                    <h3>Summarizes responses in clear dashboards or tabular formats</h3>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">6</div>
+                    <h3>Helps you make decisions and take action</h3>
+                </div>
+            </div>
+            
+            <p style="text-align: center; font-size: 1.3rem; margin-top: 40px; opacity: 0.9; font-style: italic;">All while you focus on the big picture.</p>
+        </div>
     </section>
     
     <section id="features" class="features">
         <div class="container">
             <div style="text-align: center; margin-bottom: 20px;">
-                <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Why Choose Envoy?</h2>
-                <p style="font-size: 1.2rem; opacity: 0.9;">Discover what makes Envoy different from every other AI assistant</p>
+                <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Why Envoy Stands Out</h2>
+                <p style="font-size: 1.2rem; opacity: 0.9;">Discover what makes Envoy the ultimate project coordination assistant</p>
             </div>
             
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="feature-icon">🧠</div>
-                    <h3>Context-Aware Intelligence</h3>
-                    <p>Envoy remembers your preferences, understands context, and delivers personalized responses that get smarter over time.</p>
+                    <h3>Project Aware Intelligence</h3>
+                    <p>Every engagement is tailored. Whether it's planning a wedding, hiring contractors, or launching a product, Envoy remembers your context, adapts over time, and gets smarter with every ask.</p>
                 </div>
                 
                 <div class="feature-card">
                     <div class="feature-icon">⚡</div>
-                    <h3>Lightning Fast</h3>
-                    <p>Get instant responses without compromising on quality. Our optimized architecture ensures rapid processing for all your queries.</p>
+                    <h3>Rapid Execution</h3>
+                    <p>Instant responses with no sacrifice in quality. That means swift timelines, fast vendor outreach, and timely milestones across every project phase.</p>
                 </div>
                 
                 <div class="feature-card">
                     <div class="feature-icon">🔒</div>
-                    <h3>Privacy First</h3>
-                    <p>Your data stays secure with end-to-end encryption and privacy-by-design architecture. No data mining, no tracking.</p>
+                    <h3>Built for Privacy</h3>
+                    <p>All communication is encrypted end to end. Your project data stays secure, confidential, and under your control.</p>
                 </div>
                 
                 <div class="feature-card">
                     <div class="feature-icon">🎯</div>
-                    <h3>Precision Accuracy</h3>
-                    <p>Built on advanced reasoning models that provide accurate, reliable information you can trust for critical decisions.</p>
+                    <h3>Spot On Accuracy</h3>
+                    <p>Envoy uses advanced reasoning models to draft precise task lists, vendor shortlists, emails, and meeting invitations so you can be confident about every next step.</p>
                 </div>
                 
                 <div class="feature-card">
                     <div class="feature-icon">🌐</div>
-                    <h3>Seamless Integration</h3>
-                    <p>Works across all your favorite platforms and tools. API-first design for developers and simple interfaces for everyone.</p>
+                    <h3>Tool Friendly & API First</h3>
+                    <p>Seamlessly plugs into calendars, CRMs, email platforms, messaging tools or your custom workflow for maximum flexibility and automation.</p>
                 </div>
                 
                 <div class="feature-card">
                     <div class="feature-icon">🚀</div>
-                    <h3>Continuously Evolving</h3>
-                    <p>Regular updates and improvements ensure Envoy stays at the cutting edge of AI technology and capabilities.</p>
+                    <h3>Always Improving</h3>
+                    <p>Envoy continuously learns from usage, adds enhancements, and evolves with new capabilities tailored to your project scenarios.</p>
                 </div>
             </div>
         </div>
@@ -438,23 +526,24 @@
     
     <section class="stats">
         <div class="container">
-            <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Trusted by Early Adopters</h2>
+            <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Early Adopter Impact</h2>
+            <p style="font-size: 1.2rem; opacity: 0.9; margin-bottom: 20px;">Join the growing community of users realizing faster project planning and vendor coordination:</p>
             <div class="stats-grid">
                 <div class="stat-item">
                     <span class="stat-number">10,000+</span>
-                    <div class="stat-label">Beta Users</div>
+                    <div class="stat-label">Users Testing Envoy</div>
                 </div>
                 <div class="stat-item">
                     <span class="stat-number">99.9%</span>
                     <div class="stat-label">Uptime</div>
                 </div>
                 <div class="stat-item">
-                    <span class="stat-number">500ms</span>
-                    <div class="stat-label">Avg Response Time</div>
+                    <span class="stat-number">≈500ms</span>
+                    <div class="stat-label">Avg AI Response Time</div>
                 </div>
                 <div class="stat-item">
                     <span class="stat-number">4.8/5</span>
-                    <div class="stat-label">User Rating</div>
+                    <div class="stat-label">User Satisfaction Rating</div>
                 </div>
             </div>
         </div>
@@ -463,7 +552,7 @@
     <section id="waitlist" class="waitlist">
         <div class="container">
             <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Be First in Line</h2>
-            <p style="font-size: 1.2rem; opacity: 0.9;">Join thousands of forward-thinking individuals and teams preparing for the future of AI assistance.</p>
+            <p style="font-size: 1.2rem; opacity: 0.9;">Ready to empower your projects with an AI that does the legwork? Join Envoy's waitlist today.</p>
             
             <form class="waitlist-form">
                 <input type="email" placeholder="Enter your email address" required>
@@ -471,7 +560,7 @@
             </form>
             
             <p style="margin-top: 30px; opacity: 0.7; font-size: 0.9rem;">
-                No spam, ever. Just updates on our launch and exclusive early access.
+                No spam, just exclusive access and updates as we launch.
             </p>
         </div>
     </section>
