@@ -1,467 +1,599 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Envoy — Mockup</title>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Envoy — Mockup</title>
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700;900&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700;900&family=Playfair+Display:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
 
-  <style>
-    :root{
-      /* Colors */
-      --color-bg: #0b0f13;
-      --color-bg-gradient: linear-gradient(180deg,#061017 0%, #07121a 45%, #071724 100%);
-      --color-card: #0f1720;
-      --color-muted: #9aa6b2;
-      --color-accent: #7dd3fc;
-      --color-accent-2: #60a5fa;
-      --color-glass: rgba(255,255,255,0.04);
-      --color-border: rgba(255,255,255,0.03);
-      --color-border-soft: rgba(255,255,255,0.02);
-      --color-text: #e6eef6;
+    <style>
+      :root {
+        /* Colors */
+        --color-bg: #0b0f13;
+        --color-bg-gradient: linear-gradient(
+          180deg,
+          #061017 0%,
+          #07121a 45%,
+          #071724 100%
+        );
+        --color-card: #0f1720;
+        --color-muted: #9aa6b2;
+        --color-accent: #7dd3fc;
+        --color-accent-2: #60a5fa;
+        --color-glass: rgba(255, 255, 255, 0.04);
+        --color-border: rgba(255, 255, 255, 0.03);
+        --color-border-soft: rgba(255, 255, 255, 0.02);
+        --color-text: #e6eef6;
 
-      /* Spacing */
-      --space-xs: 6px;
-      --space-sm: 12px;
-      --space-md: 18px;
-      --space-lg: 22px;
-      --space-xl: 34px;
-      --space-2xl: 48px;
+        /* Spacing */
+        --space-xs: 6px;
+        --space-sm: 12px;
+        --space-md: 18px;
+        --space-lg: 22px;
+        --space-xl: 34px;
+        --space-2xl: 48px;
 
-      /* Radii */
-      --radius-sm: 10px;
-      --radius-md: 12px;
-      --radius-lg: 16px;
-      --radius-xl: 18px;
-      --radius-pill: 999px;
+        /* Radii */
+        --radius-sm: 10px;
+        --radius-md: 12px;
+        --radius-lg: 16px;
+        --radius-xl: 18px;
+        --radius-pill: 999px;
 
-      /* Fonts */
-      --font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      --font-heading: "Playfair Display", serif;
-      --font-size-xs: 12px;
-      --font-size-sm: 13px;
-      --font-size-md: 15px;
-      --font-size-lg: 18px;
-      --font-size-xl: 28px;
-      --font-size-2xl: 34px;
-      --font-size-3xl: 54px;
-    }
+        /* Fonts */
+        --font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial;
+        --font-heading: "Playfair Display", serif;
+        --font-size-xs: 12px;
+        --font-size-sm: 13px;
+        --font-size-md: 15px;
+        --font-size-lg: 18px;
+        --font-size-xl: 28px;
+        --font-size-2xl: 34px;
+        --font-size-3xl: 54px;
+      }
 
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family: var(--font-body);
-      background: var(--color-bg-gradient);
-      color: var(--color-text);
-      line-height:1.4;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-    }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        margin: 0;
+        font-family: var(--font-body);
+        background: var(--color-bg-gradient);
+        color: var(--color-text);
+        line-height: 1.4;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
 
-    .container{
-      max-width:1200px;
-      margin:var(--space-2xl) auto;
-      padding:var(--space-lg);
-    }
+      .container {
+        max-width: 1200px;
+        margin: var(--space-2xl) auto;
+        padding: var(--space-lg);
+      }
 
-    .top-row{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:var(--space-md);
-      margin-bottom:var(--space-xl);
-      flex-wrap:wrap;
-    }
+      .top-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: var(--space-md);
+        margin-bottom: var(--space-xl);
+        flex-wrap: wrap;
+      }
 
-    .micro-nav{
-      display:flex;
-      gap:var(--space-md);
-      align-items:center;
-      flex-wrap:wrap;
-    }
+      .micro-nav {
+        display: flex;
+        gap: var(--space-md);
+        align-items: center;
+        flex-wrap: wrap;
+      }
 
-    .micro-nav a{
-      text-decoration:none;
-      color:var(--color-muted);
-      font-weight:600;
-      letter-spacing:0.28em;
-      text-transform:lowercase;
-      font-size:var(--font-size-xs);
-    }
+      .micro-nav a {
+        text-decoration: none;
+        color: var(--color-muted);
+        font-weight: 600;
+        letter-spacing: 0.28em;
+        text-transform: lowercase;
+        font-size: var(--font-size-xs);
+      }
 
-    .cta-top{
-      background: linear-gradient(90deg, rgba(125,211,252,0.12), rgba(125,211,252,0.06));
-      padding:var(--space-xs) var(--space-sm);
-      border-radius:var(--radius-pill);
-      color:var(--color-accent);
-      font-weight:700;
-      letter-spacing:0.12em;
-      font-size:var(--font-size-sm);
-      border:1px solid rgba(125,211,252,0.06);
-    }
+      .cta-top {
+        background: linear-gradient(
+          90deg,
+          rgba(125, 211, 252, 0.12),
+          rgba(125, 211, 252, 0.06)
+        );
+        padding: var(--space-xs) var(--space-sm);
+        border-radius: var(--radius-pill);
+        color: var(--color-accent);
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        font-size: var(--font-size-sm);
+        border: 1px solid rgba(125, 211, 252, 0.06);
+      }
 
-    .hero{
-      display:grid;
-      grid-template-columns: 1fr 420px;
-      gap:var(--space-xl);
-      align-items:stretch;
-      margin-bottom:var(--space-2xl);
-    }
+      .hero {
+        display: grid;
+        grid-template-columns: 1fr 420px;
+        gap: var(--space-xl);
+        align-items: stretch;
+        margin-bottom: var(--space-2xl);
+      }
 
-    .hero-left{
-      display:flex;
-      flex-direction:column;
-      gap:var(--space-md);
-      justify-content:center;
-    }
+      .hero-left {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-md);
+        justify-content: center;
+      }
 
-    .eyebrow{
-      color:var(--color-muted);
-      font-weight:600;
-      letter-spacing:.24em;
-      text-transform:lowercase;
-      font-size:var(--font-size-sm);
-    }
+      .eyebrow {
+        color: var(--color-muted);
+        font-weight: 600;
+        letter-spacing: 0.24em;
+        text-transform: lowercase;
+        font-size: var(--font-size-sm);
+      }
 
-    .title{
-      font-family: var(--font-heading);
-      font-size:var(--font-size-3xl);
-      line-height:1.02;
-      margin:0;
-      letter-spacing: 0.02em;
-      margin-top:var(--space-xs);
-    }
+      .title {
+        font-family: var(--font-heading);
+        font-size: var(--font-size-3xl);
+        line-height: 1.02;
+        margin: 0;
+        letter-spacing: 0.02em;
+        margin-top: var(--space-xs);
+      }
 
-    .subtitle{
-      color:var(--color-muted);
-      font-size:var(--font-size-lg);
-      max-width:56ch;
-    }
+      .subtitle {
+        color: var(--color-muted);
+        font-size: var(--font-size-lg);
+        max-width: 56ch;
+      }
 
-    .cta-row{
-      display:flex;
-      gap:var(--space-sm);
-      margin-top:var(--space-sm);
-      align-items:center;
-    }
+      .cta-row {
+        display: flex;
+        gap: var(--space-sm);
+        margin-top: var(--space-sm);
+        align-items: center;
+      }
 
-    .btn{
-      background: linear-gradient(90deg,var(--color-accent) 0%, var(--color-accent-2) 100%);
-      color:#042027;
-      padding:var(--space-sm) var(--space-md);
-      border-radius:var(--radius-md);
-      font-weight:700;
-      border:none;
-      cursor:pointer;
-      box-shadow: 0 8px 30px rgba(96,165,250,0.14);
-    }
+      .btn {
+        background: linear-gradient(
+          90deg,
+          var(--color-accent) 0%,
+          var(--color-accent-2) 100%
+        );
+        color: #042027;
+        padding: var(--space-sm) var(--space-md);
+        border-radius: var(--radius-md);
+        font-weight: 700;
+        border: none;
+        cursor: pointer;
+        box-shadow: 0 8px 30px rgba(96, 165, 250, 0.14);
+      }
 
-    .btn.secondary{
-      background:transparent;
-      border:1px solid rgba(255,255,255,0.06);
-      color:var(--color-muted);
-      padding:calc(var(--space-xs)+2px) var(--space-sm);
-      border-radius:var(--radius-sm);
-    }
+      .btn.secondary {
+        background: transparent;
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        color: var(--color-muted);
+        padding: calc(var(--space-xs)+2px) var(--space-sm);
+        border-radius: var(--radius-sm);
+      }
 
-    .hero-right{
-      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      border-radius:var(--radius-xl);
-      padding:var(--space-lg);
-      border:1px solid var(--color-border);
-      display:flex;
-      flex-direction:column;
-      gap:var(--space-sm);
-      min-height:200px;
-    }
+      .hero-right {
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.02),
+          rgba(255, 255, 255, 0.01)
+        );
+        border-radius: var(--radius-xl);
+        padding: var(--space-lg);
+        border: 1px solid var(--color-border);
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-sm);
+        min-height: 200px;
+      }
 
-    .hero-right h4{
-      margin:0;
-      font-size:var(--font-size-sm);
-      color:var(--color-muted);
-      letter-spacing:.18em;
-      text-transform:lowercase;
-    }
+      .hero-right h4 {
+        margin: 0;
+        font-size: var(--font-size-sm);
+        color: var(--color-muted);
+        letter-spacing: 0.18em;
+        text-transform: lowercase;
+      }
 
-    .hero-right p{
-      margin:0;
-      font-weight:600;
-      font-size:20px;
-    }
+      .hero-right p {
+        margin: 0;
+        font-weight: 600;
+        font-size: 20px;
+      }
 
-    .big-stripe{
-      margin:var(--space-xl) 0;
-      padding:var(--space-lg);
-      background:linear-gradient(90deg, rgba(125,211,252,0.02), rgba(125,211,252,0.01));
-      border-radius:var(--radius-md);
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:var(--space-sm);
-      border:1px solid rgba(125,211,252,0.03);
-    }
+      .big-stripe {
+        margin: var(--space-xl) 0;
+        padding: var(--space-lg);
+        background: linear-gradient(
+          90deg,
+          rgba(125, 211, 252, 0.02),
+          rgba(125, 211, 252, 0.01)
+        );
+        border-radius: var(--radius-md);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--space-sm);
+        border: 1px solid rgba(125, 211, 252, 0.03);
+      }
 
-    .big-stripe .left{
-      font-size:var(--font-size-sm);
-      color:var(--color-muted);
-      letter-spacing:.18em;
-      text-transform:lowercase;
-    }
+      .big-stripe .left {
+        font-size: var(--font-size-sm);
+        color: var(--color-muted);
+        letter-spacing: 0.18em;
+        text-transform: lowercase;
+      }
 
-    .big-stripe .right{
-      font-weight:800;
-      font-size:var(--font-size-xl);
-      letter-spacing:0.06em;
-    }
+      .big-stripe .right {
+        font-weight: 800;
+        font-size: var(--font-size-xl);
+        letter-spacing: 0.06em;
+      }
 
-    .cards{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap:var(--space-md);
-      margin-top:var(--space-xs);
-    }
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--space-md);
+        margin-top: var(--space-xs);
+      }
 
-    .card{
-      background:var(--color-card);
-      border-radius:var(--radius-lg);
-      padding:var(--space-md);
-      border:1px solid var(--color-border-soft);
-      min-height:140px;
-      display:flex;
-      flex-direction:column;
-      gap:var(--space-sm);
-    }
+      .card {
+        background: var(--color-card);
+        border-radius: var(--radius-lg);
+        padding: var(--space-md);
+        border: 1px solid var(--color-border-soft);
+        min-height: 140px;
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-sm);
+      }
 
-    .card h5{
-      margin:0;
-      font-size:var(--font-size-md);
-      letter-spacing:0.06em;
-    }
+      .card h5 {
+        margin: 0;
+        font-size: var(--font-size-md);
+        letter-spacing: 0.06em;
+      }
 
-    .card p{
-      margin:0;
-      color:var(--color-muted);
-      font-size:var(--font-size-sm);
-    }
+      .card p {
+        margin: 0;
+        color: var(--color-muted);
+        font-size: var(--font-size-sm);
+      }
 
-    .feature-strip{
-      margin-top:var(--space-2xl);
-      display:flex;
-      gap:var(--space-md);
-      align-items:flex-start;
-      flex-wrap:wrap;
-    }
+      .feature-strip {
+        margin-top: var(--space-2xl);
+        display: flex;
+        gap: var(--space-md);
+        align-items: flex-start;
+        flex-wrap: wrap;
+      }
 
-    .feature-left{
-      flex:1 1 280px;
-      background: linear-gradient(180deg,#071421, #06141a);
-      border-radius:var(--radius-lg);
-      padding:var(--space-lg);
-      border: 1px solid var(--color-border-soft);
-    }
+      .feature-left {
+        flex: 1 1 280px;
+        background: linear-gradient(180deg, #071421, #06141a);
+        border-radius: var(--radius-lg);
+        padding: var(--space-lg);
+        border: 1px solid var(--color-border-soft);
+      }
 
-    .feature-left .spaced{
-      font-size:var(--font-size-xs);
-      letter-spacing: .5em;
-      color:var(--color-muted);
-      text-transform:lowercase;
-      margin-bottom:var(--space-sm);
-      display:block;
-    }
+      .feature-left .spaced {
+        font-size: var(--font-size-xs);
+        letter-spacing: 0.5em;
+        color: var(--color-muted);
+        text-transform: lowercase;
+        margin-bottom: var(--space-sm);
+        display: block;
+      }
 
-    .feature-left h3{
-      margin:0;
-      font-family:var(--font-heading);
-      font-size:var(--font-size-xl);
-    }
+      .feature-left h3 {
+        margin: 0;
+        font-family: var(--font-heading);
+        font-size: var(--font-size-xl);
+      }
 
-    .feature-right{
-      flex:2 1 580px;
-      display:grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap:var(--space-sm);
-    }
+      .feature-right {
+        flex: 2 1 580px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-sm);
+      }
 
-    .example{
-      background:var(--color-glass);
-      border-radius:var(--radius-md);
-      padding:var(--space-sm);
-      min-height:110px;
-      border:1px solid rgba(255,255,255,0.028);
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-    }
+      .example {
+        background: var(--color-glass);
+        border-radius: var(--radius-md);
+        padding: var(--space-sm);
+        min-height: 110px;
+        border: 1px solid rgba(255, 255, 255, 0.028);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
 
-    .example h4{margin:0 0 var(--space-xs) 0;color:#dff7ff}
-    .example p{margin:0;color:var(--color-muted);font-size:var(--font-size-sm)}
+      .example h4 {
+        margin: 0 0 var(--space-xs) 0;
+        color: #dff7ff;
+      }
+      .example p {
+        margin: 0;
+        color: var(--color-muted);
+        font-size: var(--font-size-sm);
+      }
 
-    @media (max-width:1100px){
-      .hero{grid-template-columns:1fr}
-      .cards{grid-template-columns: repeat(2,1fr)}
-      .feature-right{grid-template-columns:1fr}
-    }
+      @media (max-width: 1100px) {
+        .hero {
+          grid-template-columns: 1fr;
+        }
+        .cards {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .feature-right {
+          grid-template-columns: 1fr;
+        }
+      }
 
-    @media (max-width:640px){
-      .top-row{gap:var(--space-xs)}
-      .title{font-size:var(--font-size-2xl)}
-      .cards{grid-template-columns:1fr}
-      .hero-right{order:2}
-      .cta-row{flex-direction:column;align-items:stretch}
-    }
+      @media (max-width: 640px) {
+        .top-row {
+          gap: var(--space-xs);
+        }
+        .title {
+          font-size: var(--font-size-2xl);
+        }
+        .cards {
+          grid-template-columns: 1fr;
+        }
+        .hero-right {
+          order: 2;
+        }
+        .cta-row {
+          flex-direction: column;
+          align-items: stretch;
+        }
+      }
 
-    .decorative{
-      position:fixed;
-      right:var(--space-sm);
-      top:120px;
-      transform: rotate(-90deg);
-      color: rgba(125,211,252,0.04);
-      font-weight:800;
-      letter-spacing:0.6em;
-      font-size:var(--font-size-xl);
-      pointer-events:none;
-      user-select:none;
-    }
-  </style>
-</head>
-<body>
-    <div style="width:100%;display:flex;align-items:center;gap:24px;margin-bottom:24px;">
-        <span style="
-            font-family: 'Playfair Display', serif;
-            font-size:54px;
-            font-weight:900;
-            color:#60a5fa;
-            text-shadow:0 0 24px #7dd3fc, 0 0 8px #60a5fa;
-            letter-spacing:0.12em;
-            line-height:1;
-            user-select:none;
-        ">Envoy</span>
-    </div>
-    <img src="donut.png" alt="Decorative donut"
-        style="
-            position:fixed;
-            left:0px;
-            top:120px;
-            width:25vw;
-            max-width:320px;
-            min-width:120px;
-            z-index:-1;
-            pointer-events:none;
-            user-select:none;
-        "
-        aria-hidden="true" />
-  <div class="container" role="main">
-    <div class="top-row" aria-hidden="false">
-      <nav class="micro-nav" aria-label="Primary">
-        <!-- <a href="#">how it works</a>
+      .decorative {
+        position: fixed;
+        right: var(--space-sm);
+        top: 120px;
+        transform: rotate(-90deg);
+        color: rgba(125, 211, 252, 0.04);
+        font-weight: 800;
+        letter-spacing: 0.6em;
+        font-size: var(--font-size-xl);
+        pointer-events: none;
+        user-select: none;
+      }
+    </style>
+  </head>
+  <body>
+    <img
+      src="donut.png"
+      alt="Decorative donut"
+      style="
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-48%);
+        width: 100vw;
+        max-width: none;
+        min-width: 0;
+        left: 0px;
+        top: 120px;
+        width: 100vw;
+        max-width: 700px;
+        min-width: 120px;
+        z-index: -1;
+        pointer-events: none;
+        user-select: none;
+      "
+      aria-hidden="true"
+    />
+    <div class="container" role="main">
+      <div class="top-row" aria-hidden="false">
+        <!-- <nav class="micro-nav" aria-label="Primary">
+          <a href="#">how it works</a>
         <a href="#">our technology</a>
-        <a href="#">what makes it special</a> -->
-      </nav>
+        <a href="#">what makes it special</a>
+        </nav> -->
+          <div class="eyebrow">your messenger for making vision a reality</div>
 
-      <div class="cta-top" role="button" tabindex="0">join the waitlist</div>
+        <div class="cta-top" role="button" tabindex="0">join the waitlist</div>
+      </div>
+       <div
+            style="
+              position: relative;
+              top: 40vh;
+              left: 0;
+              width: 100vw;
+              height: 100vh;
+              display: flex;
+              position: relative;
+              top: 0;
+              margin-bottom: 0;
+              height: 90vh;
+              align-items: flex-start;
+              justify-content: center;
+              z-index: 1;
+              pointer-events: none;
+              position: static;
+              user-select: none;
+            "
+          >
+            <span
+              style="
+                font-family: 'Helvetica', serif;
+                font-size: 18vw;
+                font-weight: 900;
+                color: #60a5fa;
+                text-shadow: 0 0 48px #7dd3fc, 0 0 16px #60a5fa;
+                letter-spacing: 0.12em;
+                line-height: 1;
+                white-space: nowrap;
+              "
+              >Envoy</span
+            >
+          </div>
+
+      <section class="hero" aria-labelledby="hero-title">
+       
+        <div class="hero-left">
+          
+          <h1 id="hero-title" class="title">
+            As far as your <em>imagination</em> can take you
+          </h1>
+          <p class="subtitle">
+            automatically communicates with your contacts so you can focus on
+            what matters. A digital representative that handles planning,
+            coordination, and follow-through — from finding contractors to
+            preparing for your big day.
+          </p>
+
+
+        </div>
+
+        <aside class="hero-right" aria-label="Quick highlights">
+          <h4>what can Envoy do for you?</h4>
+          <p>
+            Correspond with vendors, contractors, and friends to get things done
+            faster and with less hassle. Compare options, answers questions, and
+            handles follow-up so you don't have to.
+          </p>
+
+          <div style="margin-top: auto; display: flex; gap: var(--space-sm)">
+            <div style="flex: 1">
+              <strong
+                style="
+                  display: block;
+                  font-size: var(--font-size-xs);
+                  color: var(--color-muted);
+                "
+                >Wedding day</strong
+              >
+              <span style="font-weight: 700"
+                >Task checklist & vendor coordination</span
+              >
+            </div>
+            <div style="flex: 1; text-align: right; color: var(--color-muted)">
+              Est. time saved<br /><strong style="color: #dff7ff"
+                >3+ hrs/week</strong
+              >
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <section class="cards" aria-label="Use cases">
+        <article class="card" aria-labelledby="c1">
+          <h5 id="c1">Your Dream Wedding</h5>
+          <p>
+            Communicate with all of your vendors with the press of a button and
+            compare hundreds of vendors head-to-head to optimze budget,
+            timeline, and options
+          </p>
+        </article>
+
+        <article class="card" aria-labelledby="c2">
+          <h5 id="c2">Family, Friends, and Fun</h5>
+          <p>
+            Coordinate friends and family to set up meal trains, plan parties,
+            and keep everyone up to date.
+          </p>
+        </article>
+
+        <article class="card" aria-labelledby="c3">
+          <h5 id="c3">Build a House</h5>
+          <p>
+            Find the best, fastest, and cheapest help by letting Envoy handle
+            the emailing for you.
+          </p>
+        </article>
+
+        <article class="card" aria-labelledby="c4">
+          <h5 id="c4">Fact-Finding</h5>
+          <p>
+            Correspond with all of your sources, contributors, and persons of
+            contact at lightspeed. Let Envoy multiply your outreach
+            capabilities.
+          </p>
+        </article>
+
+        <article class="card" aria-labelledby="c5">
+          <h5 id="c5">Handle Inquiries</h5>
+          <p>
+            Questions = Answered. Envoy uses your knowledge to answer for you.
+          </p>
+        </article>
+
+        <article class="card" aria-labelledby="c6">
+          <h5 id="c6">Home Repair</h5>
+          <p>
+            Schedule estimates, get quotes, and understand all if it better with
+            Envoy.
+          </p>
+        </article>
+      </section>
+
+      <section
+        class="feature-strip"
+        aria-label="Examples and additional features"
+      >
+        <div class="feature-left" role="complementary">
+          <span class="spaced">join the waitlist</span>
+          <h3>Planning made human</h3>
+          <p style="color: var(--color-muted); margin-top: var(--space-xs)">
+            A virtual assistant that turns complicated planning into
+            step-by-step actions, connecting with contacts, contractors, and
+            correspondants so you don't have to.
+          </p>
+        </div>
+
+        <div class="feature-right">
+          <div class="example" role="article">
+            <h4>Planning a wedding</h4>
+            <p>
+              Timelines, vendor outreach, and day-of coordination delivered as
+              tasks.
+            </p>
+          </div>
+
+          <div class="example" role="article">
+            <h4>Large house project</h4>
+            <p>
+              Track contractors, schedules, and approvals without the headache.
+            </p>
+          </div>
+
+          <div class="example" role="article">
+            <h4>Child reading progress</h4>
+            <p>Track milestones, reminders, and reading logs across devices.</p>
+          </div>
+
+          <div class="example" role="article">
+            <h4>Insurance & Billing</h4>
+            <p>
+              Estimate costs using CPT codes and optimize billing timelines.
+            </p>
+          </div>
+        </div>
+      </section>
     </div>
 
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="hero-left">
-        <div class="eyebrow">your messenger for making vision a reality</div>
-        <h1 id="hero-title" class="title">As far as your imagination can take you</h1>
-        <p class="subtitle">
-          automatically communicates with your contacts so you can focus on what matters. A digital representative that handles
-          planning, coordination, and follow-through — from finding contractors to preparing for your big day.
-        </p>
-
-        <div class="cta-row">
-          <button class="btn">Join waitlist</button>
-          <!-- <button class="btn secondary" aria-label="Learn more">Learn more</button> -->
-        </div>
-      </div>
-
-      <aside class="hero-right" aria-label="Quick highlights">
-        <h4>what can Envoy do for you?</h4>
-        <p>
-          Correspond with vendors, contractors, and friends to get things done faster and with less hassle. 
-          Compare options, answers questions, and handles follow-up so you don't have to.
-        </p>
-
-        <div style="margin-top:auto;display:flex;gap:var(--space-sm);">
-          <div style="flex:1;">
-            <strong style="display:block;font-size:var(--font-size-xs);color:var(--color-muted);">Wedding day</strong>
-            <span style="font-weight:700">Task checklist & vendor coordination</span>
-          </div>
-          <div style="flex:1;text-align:right;color:var(--color-muted)">Est. time saved<br><strong style="color:#dff7ff">3+ hrs/week</strong></div>
-        </div>
-      </aside>
-    </section>
-
-    <section class="cards" aria-label="Use cases">
-      <article class="card" aria-labelledby="c1">
-        <h5 id="c1">Your Dream Wedding</h5>
-        <p>Communicate with all of your vendors with the press of a button and compare hundreds of vendors head-to-head to optimze budget, timeline, and options</p>
-      </article>
-
-      <article class="card" aria-labelledby="c2">
-        <h5 id="c2">Family, Friends, and Fun</h5>
-        <p>Coordinate friends and family to set up meal trains, plan parties, and keep everyone up to date.</p>
-      </article>
-
-      <article class="card" aria-labelledby="c3">
-        <h5 id="c3">Build a House</h5>
-        <p>Find the best, fastest, and cheapest help by letting Envoy handle the emailing for you.</p>
-      </article>
-
-      <article class="card" aria-labelledby="c4">
-        <h5 id="c4">Fact-Finding</h5>
-        <p>Correspond with all of your sources, contributors, and persons of contact at lightspeed. Let Envoy multiply your outreach capabilities.</p>
-      </article>
-
-      <article class="card" aria-labelledby="c5">
-        <h5 id="c5">Handle Inquiries</h5>
-        <p>Questions = Answered. Envoy uses your knowledge to answer for you.</p>
-      </article>
-
-      <article class="card" aria-labelledby="c6">
-        <h5 id="c6">Home Repair</h5>
-        <p>Schedule estimates, get quotes, and understand all if it better with Envoy.</p>
-      </article>
-    </section>
-
-    <section class="feature-strip" aria-label="Examples and additional features">
-      <div class="feature-left" role="complementary">
-        <span class="spaced">join the waitlist</span>
-        <h3>Planning made human</h3>
-        <p style="color:var(--color-muted);margin-top:var(--space-xs);">
-          A virtual assistant that turns complicated planning into step-by-step actions,
-          connecting with contacts, contractors, and correspondants so you don't have to.
-        </p>
-      </div>
-
-      <div class="feature-right">
-        <div class="example" role="article">
-          <h4>Planning a wedding</h4>
-          <p>Timelines, vendor outreach, and day-of coordination delivered as tasks.</p>
-        </div>
-
-        <div class="example" role="article">
-          <h4>Large house project</h4>
-          <p>Track contractors, schedules, and approvals without the headache.</p>
-        </div>
-
-        <div class="example" role="article">
-          <h4>Child reading progress</h4>
-          <p>Track milestones, reminders, and reading logs across devices.</p>
-        </div>
-
-        <div class="example" role="article">
-          <h4>Insurance & Billing</h4>
-          <p>Estimate costs using CPT codes and optimize billing timelines.</p>
-        </div>
-      </div>
-    </section>
-  </div>
-
-  <!-- <div class="decorative" aria-hidden="true">JOIN THE WAITLIST</div> -->
-</body>
+    <!-- <div class="decorative" aria-hidden="true">JOIN THE WAITLIST</div> -->
+  </body>
 </html>
