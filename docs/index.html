@@ -3,13 +3,27 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Envoy — Mockup</title>
+    <title>Envoy — Your Digital Representative</title>
 
     <!-- Google Fonts -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700;900&family=Playfair+Display:wght@600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700;900&family=Playfair+Display:wght@600;700&family=Orbitron:wght@900&display=swap"
       rel="stylesheet"
     />
+
+    <style>
+      @font-face {
+        font-family: "Forever Freedom";
+        src: url("Forever Freedom Regular Font Regular.ttf") format("truetype");
+        font-weight: normal;
+        font-style: normal;
+      }
+    </style>
+
+    <script>
+      // Configure your waitlist URL here
+      const WAITLIST_URL = "https://forms.fillout.com/t/k29bspbPEWus";
+    </script>
 
     <style>
       :root {
@@ -17,11 +31,11 @@
         --color-bg: #0b0f13;
         --color-bg-gradient: linear-gradient(
           180deg,
-          #061017 0%,
-          #07121a 45%,
-          #071724 100%
+          #101010 0%,
+          #101010 45%,
+          #101010 100%
         );
-        --color-card: #0f1720;
+        --color-card: rgba(255, 255, 255, 0.04);;
         --color-muted: #9aa6b2;
         --color-accent: #7dd3fc;
         --color-accent-2: #60a5fa;
@@ -61,24 +75,43 @@
       * {
         box-sizing: border-box;
       }
+
       html,
       body {
         height: 100%;
-      }
-      body {
         margin: 0;
+        padding: 0;
+      }
+
+      body {
         font-family: var(--font-body);
         background: var(--color-bg-gradient);
         color: var(--color-text);
         line-height: 1.4;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
+        overflow-x: hidden;
+      }
+
+      .decorative-bg {
+        position: static;
+        transform: none;
+        width: 100%;
+        max-width: 500px;
+        z-index: 1;
+        pointer-events: auto;
+        user-select: auto;
+        opacity: 1;
+        display: block;
+        margin: -60px auto 40px auto;;
       }
 
       .container {
         max-width: 1200px;
-        margin: var(--space-2xl) auto;
-        padding: var(--space-lg);
+        margin: 0 auto;
+        padding: var(--space-2xl) var(--space-lg);
+        position: relative;
+        z-index: 1;
       }
 
       .top-row {
@@ -90,20 +123,12 @@
         flex-wrap: wrap;
       }
 
-      .micro-nav {
-        display: flex;
-        gap: var(--space-md);
-        align-items: center;
-        flex-wrap: wrap;
-      }
-
-      .micro-nav a {
-        text-decoration: none;
+      .eyebrow {
         color: var(--color-muted);
         font-weight: 600;
-        letter-spacing: 0.28em;
+        letter-spacing: 0.24em;
         text-transform: lowercase;
-        font-size: var(--font-size-xs);
+        font-size: var(--font-size-sm);
       }
 
       .cta-top {
@@ -119,13 +144,46 @@
         letter-spacing: 0.12em;
         font-size: var(--font-size-sm);
         border: 1px solid rgba(125, 211, 252, 0.06);
+        cursor: pointer;
+        transition: all 0.2s ease;
+        white-space: nowrap;
+      }
+
+      .cta-top:hover {
+        background: linear-gradient(
+          90deg,
+          rgba(125, 211, 252, 0.18),
+          rgba(125, 211, 252, 0.1)
+        );
+        transform: translateY(-1px);
+      }
+
+      .hero-logo {
+        text-align: center;
+        margin: var(--space-2xl) 0;
+      }
+
+      .hero-logo span {
+        font-family: "Forever Freedom", "Helvetica", sans-serif;
+        font-size: clamp(80px, 18vw, 200px);
+        font-weight: 90;
+        color: transparent;
+        -webkit-text-stroke: 4px rgba(255, 255, 255, 0.9);
+        text-stroke: 2px rgba(255, 255, 255, 0.9);
+        letter-spacing: 0.22em;
+        line-height: 1;
+        white-space: nowrap;
+        filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.8))
+          drop-shadow(0 0 40px rgba(125, 211, 252, 0.6))
+          drop-shadow(0 0 60px rgba(125, 211, 252, 0.4));
+          margin-right: -0.22em; /* Add this line */
       }
 
       .hero {
         display: grid;
         grid-template-columns: 1fr 420px;
         gap: var(--space-xl);
-        align-items: stretch;
+        align-items: start;
         margin-bottom: var(--space-2xl);
       }
 
@@ -133,60 +191,27 @@
         display: flex;
         flex-direction: column;
         gap: var(--space-md);
-        justify-content: center;
-      }
-
-      .eyebrow {
-        color: var(--color-muted);
-        font-weight: 600;
-        letter-spacing: 0.24em;
-        text-transform: lowercase;
-        font-size: var(--font-size-sm);
       }
 
       .title {
         font-family: var(--font-heading);
-        font-size: var(--font-size-3xl);
-        line-height: 1.02;
+        font-size: clamp(var(--font-size-2xl), 5vw, var(--font-size-3xl));
+        line-height: 1.1;
         margin: 0;
         letter-spacing: 0.02em;
-        margin-top: var(--space-xs);
+      }
+
+      .title em {
+        font-style: italic;
+        color: var(--color-accent);
       }
 
       .subtitle {
         color: var(--color-muted);
         font-size: var(--font-size-lg);
+        line-height: 1.6;
         max-width: 56ch;
-      }
-
-      .cta-row {
-        display: flex;
-        gap: var(--space-sm);
-        margin-top: var(--space-sm);
-        align-items: center;
-      }
-
-      .btn {
-        background: linear-gradient(
-          90deg,
-          var(--color-accent) 0%,
-          var(--color-accent-2) 100%
-        );
-        color: #042027;
-        padding: var(--space-sm) var(--space-md);
-        border-radius: var(--radius-md);
-        font-weight: 700;
-        border: none;
-        cursor: pointer;
-        box-shadow: 0 8px 30px rgba(96, 165, 250, 0.14);
-      }
-
-      .btn.secondary {
-        background: transparent;
-        border: 1px solid rgba(255, 255, 255, 0.06);
-        color: var(--color-muted);
-        padding: calc(var(--space-xs)+2px) var(--space-sm);
-        border-radius: var(--radius-sm);
+        margin: 0;
       }
 
       .hero-right {
@@ -216,42 +241,37 @@
         margin: 0;
         font-weight: 600;
         font-size: 20px;
+        line-height: 1.5;
       }
 
-      .big-stripe {
-        margin: var(--space-xl) 0;
-        padding: var(--space-lg);
-        background: linear-gradient(
-          90deg,
-          rgba(125, 211, 252, 0.02),
-          rgba(125, 211, 252, 0.01)
-        );
-        border-radius: var(--radius-md);
+      .highlight-box {
+        margin-top: auto;
         display: flex;
-        align-items: center;
-        justify-content: space-between;
         gap: var(--space-sm);
-        border: 1px solid rgba(125, 211, 252, 0.03);
+        padding-top: var(--space-sm);
+        border-top: 1px solid var(--color-border-soft);
       }
 
-      .big-stripe .left {
-        font-size: var(--font-size-sm);
+      .highlight-item {
+        flex: 1;
+      }
+
+      .highlight-label {
+        display: block;
+        font-size: var(--font-size-xs);
         color: var(--color-muted);
-        letter-spacing: 0.18em;
-        text-transform: lowercase;
+        margin-bottom: 4px;
       }
 
-      .big-stripe .right {
-        font-weight: 800;
-        font-size: var(--font-size-xl);
-        letter-spacing: 0.06em;
+      .highlight-value {
+        font-weight: 700;
       }
 
       .cards {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
         gap: var(--space-md);
-        margin-top: var(--space-xs);
+        margin-top: var(--space-xl);
       }
 
       .card {
@@ -263,18 +283,29 @@
         display: flex;
         flex-direction: column;
         gap: var(--space-sm);
+        transition: transform 0.2s ease, border-color 0.2s ease;
+        cursor: pointer;
+        text-decoration: none;
+        color: inherit;
+      }
+
+      .card:hover {
+        transform: translateY(-2px);
+        border-color: var(--color-border);
       }
 
       .card h5 {
         margin: 0;
         font-size: var(--font-size-md);
         letter-spacing: 0.06em;
+        font-weight: 700;
       }
 
       .card p {
         margin: 0;
         color: var(--color-muted);
         font-size: var(--font-size-sm);
+        line-height: 1.6;
       }
 
       .feature-strip {
@@ -287,7 +318,7 @@
 
       .feature-left {
         flex: 1 1 280px;
-        background: linear-gradient(180deg, #071421, #06141a);
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), #rgba(255, 255, 255, 0.04));
         border-radius: var(--radius-lg);
         padding: var(--space-lg);
         border: 1px solid var(--color-border-soft);
@@ -306,12 +337,17 @@
         margin: 0;
         font-family: var(--font-heading);
         font-size: var(--font-size-xl);
+        line-height: 1.2;
+      }
+
+      .feature-left p {
+        margin: var(--space-xs) 0 0;
       }
 
       .feature-right {
-        flex: 2 1 580px;
+        flex: 2 1 500px;
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
         gap: var(--space-sm);
       }
 
@@ -329,168 +365,157 @@
       .example h4 {
         margin: 0 0 var(--space-xs) 0;
         color: #dff7ff;
+        font-size: var(--font-size-md);
       }
+
       .example p {
         margin: 0;
         color: var(--color-muted);
         font-size: var(--font-size-sm);
+        line-height: 1.5;
       }
 
+      .cta-bottom {
+        margin: var(--space-2xl) auto;
+        padding: var(--space-lg) var(--space-2xl);
+        background: linear-gradient(
+          135deg,
+          rgba(125, 211, 252, 0.15),
+          rgba(96, 165, 250, 0.12)
+        );
+        border: 2px solid rgba(125, 211, 252, 0.3);
+        border-radius: var(--radius-lg);
+        color: var(--color-accent);
+        font-size: var(--font-size-lg);
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: block;
+        text-align: center;
+        text-decoration: none;
+        box-shadow: 0 8px 32px rgba(125, 211, 252, 0.2);
+      }
+
+      .cta-bottom:hover {
+        background: linear-gradient(
+          135deg,
+          rgba(125, 211, 252, 0.22),
+          rgba(96, 165, 250, 0.18)
+        );
+        transform: translateY(-2px);
+        box-shadow: 0 12px 48px rgba(125, 211, 252, 0.3);
+      }
+
+      .bottom-spacer {
+        height: var(--space-2xl);
+      }
+
+      /* Responsive adjustments */
       @media (max-width: 1100px) {
         .hero {
           grid-template-columns: 1fr;
         }
-        .cards {
-          grid-template-columns: repeat(2, 1fr);
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          padding: var(--space-lg) var(--space-md);
         }
+
+        .decorative-bg {
+          margin: -30px auto;
+        }
+
+        .top-row {
+          gap: var(--space-sm);
+        }
+
+        .cards {
+          grid-template-columns: 1fr;
+        }
+
         .feature-right {
           grid-template-columns: 1fr;
         }
       }
 
       @media (max-width: 640px) {
-        .top-row {
+        .hero-logo {
+          margin: var(--space-lg) 0;
+        }
+
+        .eyebrow {
+          font-size: 11px;
+          letter-spacing: 0.18em;
+        }
+
+        .cta-top {
+          font-size: 11px;
+          padding: var(--space-xs) 10px;
+        }
+
+        .highlight-box {
+          flex-direction: column;
           gap: var(--space-xs);
         }
-        .title {
-          font-size: var(--font-size-2xl);
-        }
-        .cards {
-          grid-template-columns: 1fr;
-        }
-        .hero-right {
-          order: 2;
-        }
-        .cta-row {
-          flex-direction: column;
-          align-items: stretch;
-        }
-      }
 
-      .decorative {
-        position: fixed;
-        right: var(--space-sm);
-        top: 120px;
-        transform: rotate(-90deg);
-        color: rgba(125, 211, 252, 0.04);
-        font-weight: 800;
-        letter-spacing: 0.6em;
-        font-size: var(--font-size-xl);
-        pointer-events: none;
-        user-select: none;
+        .feature-strip {
+          margin-top: var(--space-xl);
+        }
       }
     </style>
   </head>
   <body>
-    <img
-      src="donut.png"
-      alt="Decorative donut"
-      style="
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-48%);
-        width: 100vw;
-        max-width: none;
-        min-width: 0;
-        left: 0px;
-        top: 120px;
-        width: 100vw;
-        max-width: 700px;
-        min-width: 120px;
-        z-index: -1;
-        pointer-events: none;
-        user-select: none;
-      "
-      aria-hidden="true"
-    />
     <div class="container" role="main">
-      <div class="top-row" aria-hidden="false">
-        <!-- <nav class="micro-nav" aria-label="Primary">
-          <a href="#">how it works</a>
-        <a href="#">our technology</a>
-        <a href="#">what makes it special</a>
-        </nav> -->
-          <div class="eyebrow">your messenger for making vision a reality</div>
+      <header class="top-row">
+        <div class="eyebrow">your messenger for making vision a reality</div>
+        <button class="cta-top" aria-label="Join the waitlist" onclick="window.open(WAITLIST_URL, '_blank')">
+          join the waitlist
+        </button>
+      </header>
 
-        <div class="cta-top" role="button" tabindex="0">join the waitlist</div>
+      <div class="hero-logo">
+        <span>ENVOY</span>
       </div>
-       <div
-            style="
-              position: relative;
-              top: 40vh;
-              left: 0;
-              width: 100vw;
-              height: 100vh;
-              display: flex;
-              position: relative;
-              top: 0;
-              margin-bottom: 0;
-              height: 90vh;
-              align-items: flex-start;
-              justify-content: center;
-              z-index: 1;
-              pointer-events: none;
-              position: static;
-              user-select: none;
-            "
-          >
-            <span
-              style="
-                font-family: 'Helvetica', serif;
-                font-size: 18vw;
-                font-weight: 900;
-                color: #60a5fa;
-                text-shadow: 0 0 48px #7dd3fc, 0 0 16px #60a5fa;
-                letter-spacing: 0.12em;
-                line-height: 1;
-                white-space: nowrap;
-              "
-              >Envoy</span
-            >
-          </div>
+
+      <img src="donut.png" alt="" class="decorative-bg" aria-hidden="true" />
 
       <section class="hero" aria-labelledby="hero-title">
-       
         <div class="hero-left">
-          
           <h1 id="hero-title" class="title">
             As far as your <em>imagination</em> can take you
           </h1>
           <p class="subtitle">
-            automatically communicates with your contacts so you can focus on
+            Automatically communicates with your contacts so you can focus on
             what matters. A digital representative that handles planning,
             coordination, and follow-through — from finding contractors to
             preparing for your big day.
           </p>
-
-
         </div>
 
         <aside class="hero-right" aria-label="Quick highlights">
           <h4>what can Envoy do for you?</h4>
           <p>
             Correspond with vendors, contractors, and friends to get things done
-            faster and with less hassle. Compare options, answers questions, and
-            handles follow-up so you don't have to.
+            faster and with less hassle. Compare options, answer questions, and
+            handle follow-up so you don't have to.
           </p>
 
-          <div style="margin-top: auto; display: flex; gap: var(--space-sm)">
-            <div style="flex: 1">
-              <strong
-                style="
-                  display: block;
-                  font-size: var(--font-size-xs);
-                  color: var(--color-muted);
-                "
-                >Wedding day</strong
-              >
-              <span style="font-weight: 700"
+          <div class="highlight-box">
+            <div class="highlight-item">
+              <strong class="highlight-label">Wedding day</strong>
+              <span class="highlight-value"
                 >Task checklist & vendor coordination</span
               >
             </div>
-            <div style="flex: 1; text-align: right; color: var(--color-muted)">
-              Est. time saved<br /><strong style="color: #dff7ff"
+            <div
+              class="highlight-item"
+              style="text-align: right; color: var(--color-muted)"
+            >
+              <span class="highlight-label">Est. time saved</span><br />
+              <strong style="color: #dff7ff; font-weight: 700"
                 >3+ hrs/week</strong
               >
             </div>
@@ -499,101 +524,105 @@
       </section>
 
       <section class="cards" aria-label="Use cases">
-        <article class="card" aria-labelledby="c1">
-          <h5 id="c1">Your Dream Wedding</h5>
+        <a href="#" class="card" onclick="event.preventDefault(); window.open(WAITLIST_URL, '_blank')">
+          <h5>Your Dream Wedding</h5>
           <p>
             Communicate with all of your vendors with the press of a button and
-            compare hundreds of vendors head-to-head to optimze budget,
-            timeline, and options
+            compare hundreds of vendors head-to-head to optimize budget,
+            timeline, and options.
           </p>
-        </article>
+        </a>
 
-        <article class="card" aria-labelledby="c2">
-          <h5 id="c2">Family, Friends, and Fun</h5>
+        <a href="#" class="card" onclick="event.preventDefault(); window.open(WAITLIST_URL, '_blank')">
+          <h5>Family, Friends, and Fun</h5>
           <p>
             Coordinate friends and family to set up meal trains, plan parties,
             and keep everyone up to date.
           </p>
-        </article>
+        </a>
 
-        <article class="card" aria-labelledby="c3">
-          <h5 id="c3">Build a House</h5>
+        <a href="#" class="card" onclick="event.preventDefault(); window.open(WAITLIST_URL, '_blank')">
+          <h5>Build a House</h5>
           <p>
             Find the best, fastest, and cheapest help by letting Envoy handle
             the emailing for you.
           </p>
-        </article>
+        </a>
 
-        <article class="card" aria-labelledby="c4">
-          <h5 id="c4">Fact-Finding</h5>
+        <a href="#" class="card" onclick="event.preventDefault(); window.open(WAITLIST_URL, '_blank')">
+          <h5>Fact-Finding</h5>
           <p>
             Correspond with all of your sources, contributors, and persons of
             contact at lightspeed. Let Envoy multiply your outreach
             capabilities.
           </p>
-        </article>
+        </a>
 
-        <article class="card" aria-labelledby="c5">
-          <h5 id="c5">Handle Inquiries</h5>
+        <a href="#" class="card" onclick="event.preventDefault(); window.open(WAITLIST_URL, '_blank')">
+          <h5>Handle Inquiries</h5>
           <p>
             Questions = Answered. Envoy uses your knowledge to answer for you.
           </p>
-        </article>
+        </a>
 
-        <article class="card" aria-labelledby="c6">
-          <h5 id="c6">Home Repair</h5>
+        <a href="#" class="card" onclick="event.preventDefault(); window.open(WAITLIST_URL, '_blank')">
+          <h5>Home Repair</h5>
           <p>
-            Schedule estimates, get quotes, and understand all if it better with
+            Schedule estimates, get quotes, and understand all of it better with
             Envoy.
           </p>
-        </article>
+        </a>
       </section>
 
       <section
         class="feature-strip"
         aria-label="Examples and additional features"
       >
-        <div class="feature-left" role="complementary">
+        <div class="feature-left">
           <span class="spaced">join the waitlist</span>
           <h3>Planning made human</h3>
-          <p style="color: var(--color-muted); margin-top: var(--space-xs)">
+          <p style="color: var(--color-muted)">
             A virtual assistant that turns complicated planning into
             step-by-step actions, connecting with contacts, contractors, and
-            correspondants so you don't have to.
+            correspondents so you don't have to.
           </p>
         </div>
 
         <div class="feature-right">
-          <div class="example" role="article">
-            <h4>Planning a wedding</h4>
+          <article class="example">
+            <h4>Planning a Wedding</h4>
             <p>
               Timelines, vendor outreach, and day-of coordination delivered as
               tasks.
             </p>
-          </div>
+          </article>
 
-          <div class="example" role="article">
-            <h4>Large house project</h4>
+          <article class="example">
+            <h4>Large House Project</h4>
             <p>
               Track contractors, schedules, and approvals without the headache.
             </p>
-          </div>
+          </article>
 
-          <div class="example" role="article">
-            <h4>Child reading progress</h4>
-            <p>Track milestones, reminders, and reading logs across devices.</p>
-          </div>
+          <article class="example">
+            <h4>Pre-screening Interview Applicants</h4>
+            <p>Envoy can ask questions and grade applicants so you can move forward with the most qualified candidates</p>
+          </article>
 
-          <div class="example" role="article">
-            <h4>Insurance & Billing</h4>
+          <article class="example">
+            <h4>Quiz Your Friends</h4>
             <p>
-              Estimate costs using CPT codes and optimize billing timelines.
+              Send open-ended questions, grade responses, and report on results.
             </p>
-          </div>
+          </article>
         </div>
       </section>
-    </div>
 
-    <!-- <div class="decorative" aria-hidden="true">JOIN THE WAITLIST</div> -->
+      <a href="#" class="cta-bottom" onclick="event.preventDefault(); window.open(WAITLIST_URL, '_blank')">
+        Join the Waitlist
+      </a>
+
+      <div class="bottom-spacer"></div>
+    </div>
   </body>
 </html>
