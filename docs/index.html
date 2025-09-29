@@ -5,6 +5,24 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Envoy — Your Digital Representative</title>
 
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+    <link rel="manifest" href="site.webmanifest" />
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="android-chrome-192x192.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="512x512"
+      href="android-chrome-512x512.png"
+    />
+
     <!-- Google Fonts -->
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700;900&family=Playfair+Display:wght@600;700&family=Orbitron:wght@900&display=swap"
@@ -35,7 +53,7 @@
           #101010 45%,
           #101010 100%
         );
-        --color-card: rgba(255, 255, 255, 0.04);;
+        --color-card: rgba(255, 255, 255, 0.04);
         --color-muted: #9aa6b2;
         --color-accent: #7dd3fc;
         --color-accent-2: #60a5fa;
@@ -103,7 +121,7 @@
         user-select: auto;
         opacity: 1;
         display: block;
-        margin: -60px auto 40px auto;;
+        margin: -60px auto 40px auto;
       }
 
       .container {
@@ -176,7 +194,7 @@
         filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.8))
           drop-shadow(0 0 40px rgba(125, 211, 252, 0.6))
           drop-shadow(0 0 60px rgba(125, 211, 252, 0.4));
-          margin-right: -0.22em; /* Add this line */
+        margin-right: -0.22em; /* Add this line */
       }
 
       .hero {
@@ -318,7 +336,11 @@
 
       .feature-left {
         flex: 1 1 280px;
-        background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), #rgba(255, 255, 255, 0.04));
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.04),
+          #rgba(255, 255, 255, 0.04)
+        );
         border-radius: var(--radius-lg);
         padding: var(--space-lg);
         border: 1px solid var(--color-border-soft);
@@ -471,7 +493,11 @@
     <div class="container" role="main">
       <header class="top-row">
         <div class="eyebrow">your messenger for making vision a reality</div>
-        <button class="cta-top" aria-label="Join the waitlist" onclick="window.open(WAITLIST_URL, '_blank')">
+        <button
+          class="cta-top"
+          aria-label="Join the waitlist"
+          onclick="window.open(WAITLIST_URL, '_blank')"
+        >
           join the waitlist
         </button>
       </header>
@@ -524,7 +550,11 @@
       </section>
 
       <section class="cards" aria-label="Use cases">
-        <a href="#" class="card" onclick="event.preventDefault(); window.open(WAITLIST_URL, '_blank')">
+        <a
+          href="#"
+          class="card"
+          onclick="event.preventDefault(); window.open(WAITLIST_URL, '_blank')"
+        >
           <h5>Your Dream Wedding</h5>
           <p>
             Communicate with all of your vendors with the press of a button and
@@ -533,7 +563,11 @@
           </p>
         </a>
 
-        <a href="#" class="card" onclick="event.preventDefault(); window.open(WAITLIST_URL, '_blank')">
+        <a
+          href="#"
+          class="card"
+          onclick="event.preventDefault(); window.open(WAITLIST_URL, '_blank')"
+        >
           <h5>Family, Friends, and Fun</h5>
           <p>
             Coordinate friends and family to set up meal trains, plan parties,
@@ -541,7 +575,11 @@
           </p>
         </a>
 
-        <a href="#" class="card" onclick="event.preventDefault(); window.open(WAITLIST_URL, '_blank')">
+        <a
+          href="#"
+          class="card"
+          onclick="event.preventDefault(); window.open(WAITLIST_URL, '_blank')"
+        >
           <h5>Build a House</h5>
           <p>
             Find the best, fastest, and cheapest help by letting Envoy handle
@@ -549,7 +587,11 @@
           </p>
         </a>
 
-        <a href="#" class="card" onclick="event.preventDefault(); window.open(WAITLIST_URL, '_blank')">
+        <a
+          href="#"
+          class="card"
+          onclick="event.preventDefault(); window.open(WAITLIST_URL, '_blank')"
+        >
           <h5>Fact-Finding</h5>
           <p>
             Correspond with all of your sources, contributors, and persons of
@@ -558,14 +600,23 @@
           </p>
         </a>
 
-        <a href="#" class="card" onclick="event.preventDefault(); window.open(WAITLIST_URL, '_blank')">
-          <h5>Handle Inquiries</h5>
+        <a
+          href="#"
+          class="card"
+          onclick="event.preventDefault(); window.open(WAITLIST_URL, '_blank')"
+        >
+          <h5>Pre-Screening Interview Applicants</h5>
           <p>
-            Questions = Answered. Envoy uses your knowledge to answer for you.
+            Envoy can ask questions and grade applicants so you can move forward
+            with the most qualified candidates
           </p>
         </a>
 
-        <a href="#" class="card" onclick="event.preventDefault(); window.open(WAITLIST_URL, '_blank')">
+        <a
+          href="#"
+          class="card"
+          onclick="event.preventDefault(); window.open(WAITLIST_URL, '_blank')"
+        >
           <h5>Home Repair</h5>
           <p>
             Schedule estimates, get quotes, and understand all of it better with
@@ -605,8 +656,10 @@
           </article>
 
           <article class="example">
-            <h4>Pre-screening Interview Applicants</h4>
-            <p>Envoy can ask questions and grade applicants so you can move forward with the most qualified candidates</p>
+            <h4>Handle Inquiries</h4>
+            <p>
+              Questions = Answered. Envoy uses your knowledge to answer for you.
+            </p>
           </article>
 
           <article class="example">
@@ -618,7 +671,11 @@
         </div>
       </section>
 
-      <a href="#" class="cta-bottom" onclick="event.preventDefault(); window.open(WAITLIST_URL, '_blank')">
+      <a
+        href="#"
+        class="cta-bottom"
+        onclick="event.preventDefault(); window.open(WAITLIST_URL, '_blank')"
+      >
         Join the Waitlist
       </a>
 
