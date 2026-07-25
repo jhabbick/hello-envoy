@@ -40272,6 +40272,7 @@ Q5.render(
         K5,
         {
           animate: "on",
+          enableTransition: !1,
           axesHelper: "off",
           brightness: 0.9,
           cAzimuthAngle: 176,

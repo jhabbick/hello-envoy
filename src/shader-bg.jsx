@@ -25,6 +25,7 @@ root.render(
   >
     <ShaderGradient
       animate="on"
+      enableTransition={false}
       axesHelper="off"
       brightness={0.9}
       cAzimuthAngle={176}
