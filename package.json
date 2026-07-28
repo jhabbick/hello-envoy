@@ -4,7 +4,8 @@
   "type": "module",
   "scripts": {
     "build:shader": "vite build",
-    "dev:shader": "vite build --watch"
+    "dev:shader": "vite build --watch",
+    "capture:og": "node scripts/capture-og-image.mjs"
   },
   "dependencies": {
     "@react-spring/three": "^9.7.5",
