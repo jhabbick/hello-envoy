@@ -344,6 +344,21 @@
         line-height: 1.5;
       }
 
+      .stack-list a {
+        color: var(--color-primary-light);
+        text-underline-offset: 3px;
+      }
+
+      .stack-list a:hover {
+        color: var(--color-primary-mid);
+      }
+
+      .stack-list a:focus-visible {
+        outline: 2px solid var(--color-primary-mid);
+        outline-offset: 3px;
+        border-radius: 2px;
+      }
+
       .step-list {
         margin: 36px 0 0;
         padding: 0;
@@ -821,8 +836,9 @@
               in five different apps
             </li>
             <li class="disclose">
-              <strong>Couples and wedding planners</strong> coordinating venue,
-              catering, florals, photography, and more — without losing the thread
+              <strong>Couples and <a href="wedding-planners/">wedding planners</a></strong>
+              coordinating venue, catering, florals, photography, and more — without
+              losing the thread
             </li>
           </ul>
         </div>
